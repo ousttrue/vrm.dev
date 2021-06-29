@@ -1,0 +1,363 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VRM – VRMファイルを作ってみたい</title>
+    <link>https://vrm.dev/how_to_make_vrm/</link>
+    <description>Recent content in VRMファイルを作ってみたい on VRM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 18 Sep 2020 15:27:25 +0900</lastBuildDate>
+    
+	  <atom:link href="https://vrm.dev/how_to_make_vrm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 0. Unityを用意して、UniVRMをインストールする</title>
+      <link>https://vrm.dev/docs/vrm/how_to_make_vrm/setup_unity/</link>
+      <pubDate>Wed, 26 Aug 2020 15:52:30 +0900</pubDate>
+      
+      <guid>https://vrm.dev/docs/vrm/how_to_make_vrm/setup_unity/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;univrm-をダウンロードする&#34;&gt;UniVRM をダウンロードする&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/vrm-c/UniVRM/releases&#34;&gt;https://github.com/vrm-c/UniVRM/releases&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;から最新版をダウンロードしてください。
+ファイル名は、&lt;code&gt;UniVRM-0.XX.0_YYYY.unitypackage&lt;/code&gt; です。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vrm.dev/images/vrm/download_unitypackage.png&#34; alt=&#34;download_unitypackage&#34;&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;XX YY&lt;/h4&gt;
+XX は UniVRM のバージョン。YYYY は バージョン識別 ID です。
+&lt;/div&gt;
+
+&lt;h2 id=&#34;unity-をインストールする&#34;&gt;Unity をインストールする&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://create.unity3d.com/jp-howto-install-win&#34;&gt;https://create.unity3d.com/jp-howto-install-win&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;UniVRMの対応するバージョンの Unity をインストールしてください。
+対応するUnityのバージョンは、&lt;code&gt;UniVRM をダウンロードする&lt;/code&gt; の URL をご確認ください。&lt;/p&gt;
+&lt;p&gt;推奨バージョン以外を使う場合は、 &lt;a href=&#34;https://vrm.dev/docs/univrm/install/&#34;&gt;インストール&lt;/a&gt; もご確認ください。&lt;/p&gt;
+&lt;h2 id=&#34;unityで空のプロジェクトを作る&#34;&gt;Unityで空のプロジェクトを作る&lt;/h2&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/unity_new_project.png&#34;   /&gt;
+
+&lt;p&gt;もしくは&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/new_project.jpg&#34;   /&gt;
+
+&lt;p&gt;Unityを起動し、プロジェクトを新規作成します。New→Create projectをクリック。&lt;/p&gt;
+&lt;h2 id=&#34;unity-に-univrm-unitypackage-を-import&#34;&gt;Unity に UniVRM unitypackage を Import&lt;/h2&gt;
+&lt;p&gt;メニューの &lt;code&gt;Assets&lt;/code&gt; - &lt;code&gt;Import pacakge&lt;/code&gt; - &lt;code&gt;Custom Package&lt;/code&gt; を選択して、
+ダウンロードした &lt;code&gt;UniVRM-0.XX.0_YYYY.unitypackage&lt;/code&gt; を選んでください。&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/package_import.jpg&#34; alt=&#34;package_import&#34; width=&#34;400&#34; /&gt;
+
+&lt;p&gt;右下の &lt;code&gt;import&lt;/code&gt; ボタンを押します。&lt;/p&gt;
+&lt;h2 id=&#34;import-が成功したか確認する方法&#34;&gt;import が成功したか確認する方法&lt;/h2&gt;
+&lt;p&gt;VRM menu が表示されていれば動作しています：&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/vrm_menu.jpg&#34; alt=&#34;vrm menu&#34;  /&gt;
+
+&lt;hr&gt;
+&lt;p&gt;前のバージョン：&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/vrm_menu_old.jpg&#34; alt=&#34;vrm menu old&#34;  /&gt;
+
+&lt;hr&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Unity-2018 で menu が出てこない場合&lt;/h4&gt;
+&lt;code&gt;ProjectSettings&lt;/code&gt; - &lt;code&gt;Player&lt;/code&gt; - &lt;code&gt;Other Settings&lt;/code&gt; - &lt;code&gt;Scripting Runtime Version&lt;/code&gt; を &lt;code&gt;.Net4.X equivalent&lt;/code&gt; になっていることを確認してください
+&lt;/div&gt;
+
+&lt;h3 id=&#34;console&#34;&gt;Console&lt;/h3&gt;
+&lt;p&gt;Console を表示させると、Unity のエラーメッセージが見れます。&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/show_console.jpg&#34; alt=&#34;show console&#34; width=&#34;500&#34; /&gt;
+
+&lt;p&gt;Console左上の clear ボタンを押して赤いメッセージが消えない場合は unitypackage のインストールに失敗しているなど、unity project に異常があります。&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/error_in_console.jpg&#34; alt=&#34;clear console&#34; width=&#34;500&#34; /&gt;
+
+&lt;h2 id=&#34;manual&#34;&gt;Manual&lt;/h2&gt;
+&lt;p&gt;➡ &lt;a href=&#34;https://vrm.dev/docs/univrm/install/&#34;&gt;インストール&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 1. VRMファイルを作成する</title>
+      <link>https://vrm.dev/how_to_make_vrm/convert_from_humanoid_model/</link>
+      <pubDate>Wed, 26 Aug 2020 15:52:06 +0900</pubDate>
+      
+      <guid>https://vrm.dev/how_to_make_vrm/convert_from_humanoid_model/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;unityでhumanoidとして扱えるモデルデータを用意します&#34;&gt;UnityでHumanoidとして扱えるモデルデータを用意します&lt;/h2&gt;
+&lt;p&gt;ヒューマノイドモデルは、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;必ずご自分で作られたモデル、ないし、加工しVRアバターとして使うことが許諾されているモデルデータをご用意ください&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;後述しますが、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;VRMファイル自体にライセンス情報を記述する項目がありますので、特にその項目については権利者自身が設定する&lt;/strong&gt; ようにしてください。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;また、Humanoid として認識させるために必須のボーンがすべて含まれている必要があります。&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;ベースモデル&lt;/h4&gt;
+使用可能なベースモデルの詳細は、 &lt;a href=&#34;https://vrm.dev/docs/univrm/humanoid/base_model/&#34;&gt;BaseModel&lt;/a&gt; を参照してください。
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/vrm-c/vrm-specification/blob/master/specification/0.0/README.ja.md#%E5%AE%9A%E7%BE%A9%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%83%9C%E3%83%BC%E3%83%B3&#34;&gt;必須ボーン&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;unity-に-fbx-を-import-する&#34;&gt;unity に fbx を import する&lt;/h2&gt;
+&lt;p&gt;fbx のフォルダを unityの Assets フォルダにドロップします。&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/fbx_folder.jpg&#34;   /&gt;
+
+&lt;p&gt;unity&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/assets_fbx.jpg&#34;   /&gt;
+
+&lt;p&gt;青いアイコンが fbx の asset(prefab) です。&lt;/p&gt;
+&lt;h2 id=&#34;fbx-の-material-を設定する&#34;&gt;fbx の material を設定する&lt;/h2&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/fbx_default.jpg&#34;   /&gt;
+
+&lt;p&gt;この時点では fbx importer による初期状態になっており、マテリアルがデフォルト状態(StandardShaderでColor, ColorTexture割り当てのみ。半透明設定が無いなど)なので、マテリアルを最低限設定します。
+VRM 向けなので、この例では全部 &lt;code&gt;MToon&lt;/code&gt; にします。&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Shader&lt;/h4&gt;
+VRMは、&lt;a href=&#34;https://vrm.dev/docs/univrm/shaders/shader_mtoon/&#34;&gt;MToon&lt;/a&gt;、&lt;a href=&#34;https://vrm.dev/docs/univrm/shaders/univrm_unlit/&#34;&gt;Unlit&lt;/a&gt; と &lt;a href=&#34;https://vrm.dev/docs/univrm/shaders/univrm_standard/&#34;&gt;Standard&lt;/a&gt; の３種類を記録できます。
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;Extract Materials&lt;/code&gt; ボタンを押して fbx のフォルダに &lt;code&gt;Materials&lt;/code&gt; フォルダを作成してそこを選択。&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/extract_materials.jpg&#34; alt=&#34;extract_materials&#34; width=&#34;900&#34; /&gt;
+
+&lt;hr&gt;
+&lt;p&gt;Shader をすべて &lt;code&gt;VRM/Mtoon&lt;/code&gt; に変更&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/change_to_mtoon.jpg&#34; alt=&#34;change_to_mtoon&#34;  /&gt;
+
+&lt;hr&gt;
+&lt;p&gt;MToon の &lt;code&gt;Shade Color&lt;/code&gt; を白に変更&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/shade_color_to_white.jpg&#34; alt=&#34;shade_color_to_white&#34;  /&gt;
+
+&lt;hr&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/alicia_preview.jpg&#34;   /&gt;
+
+&lt;p&gt;ちゃんとした設定はこちら。&lt;a href=&#34;https://vrm.dev/docs/univrm/shaders/shader_mtoon/&#34;&gt;MToonの設定&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;手順の説明なので先に進みます。&lt;/p&gt;
+&lt;h2 id=&#34;fbx-を-humanoid-設定にする&#34;&gt;fbx を humanoid 設定にする&lt;/h2&gt;
+&lt;p&gt;fbx デフォルトは、generic 設定です。&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/rig_generic.jpg&#34;   /&gt;
+
+&lt;p&gt;humanoid に変更します。&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/select_humanoid.jpg&#34;   /&gt;
+
+&lt;p&gt;&lt;code&gt;apply&lt;/code&gt; を押します。&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;humanoid&lt;/h4&gt;
+このとき fbx importer がヒューマノイドボーンの割り当てを自動で推定します。
+失敗する時もあり、成功しても間違っている場合もあります。
+&lt;/div&gt;
+
+&lt;p&gt;humanoid のボーン割り当て画面に入ります。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;configure&lt;/code&gt; ボタンを押します。&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/BoneMapping.png&#34; alt=&#34;BoneMapping&#34; width=&#34;600&#34; /&gt;
+
+&lt;p&gt;ボーンの割り当てを確認してください。&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;bone&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;前髪に顎ボーンが割り当てられる&lt;/li&gt;
+&lt;li&gt;目のハイライトに目ボーンが割り当てられる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;などにご注意ください。
+&lt;/div&gt;
+
+&lt;h2 id=&#34;prefab-をシーンに展開&#34;&gt;prefab をシーンに展開&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;File&lt;/code&gt; - &lt;code&gt;New Scene&lt;/code&gt; として、
+fbx の prefab をシーンに展開します。&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/DragImportedModel.png&#34;  width=&#34;600&#34; /&gt;
+
+&lt;h2 id=&#34;fbx-の-blendshpae-の法線が乱れていないか確認する&#34;&gt;fbx の blendshpae の法線が乱れていないか確認する&lt;/h2&gt;
+&lt;p&gt;BlendShapeで変な影が出る場合の対策です。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://vrm.dev/docs/univrm/blendshape/check_blendshape_normal/&#34;&gt;BlendShape の法線を確認しよう&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;エクスポート&#34;&gt;エクスポート&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://vrm.dev/images/vrm/vrm_menu.jpg&#34; alt=&#34;vrm_menu&#34; width=&#34;250&#34; /&gt;
+
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;VRM0&lt;/code&gt; - &lt;code&gt;Export UniVRM-0.XX&lt;/code&gt; を押してダイアログを表示します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vrm.dev/images/vrm/UniVRMExportHumanoid.jpg&#34; alt=&#34;UniVRMExportHumanoid&#34; width=&#34;400&#34; /&gt;
+
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;前のバージョンは &lt;code&gt;VRM&lt;/code&gt; - &lt;code&gt;UniVRM-0.XX&lt;/code&gt; - &lt;code&gt;Export humanoid&lt;/code&gt;。&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/export058_empty.jpg&#34;  width=&#34;600&#34; /&gt;
+
+&lt;p&gt;&lt;code&gt;Export Root&lt;/code&gt; に prefab をシーンに展開した GameObject をドロップします。&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;エラー&lt;/h4&gt;
+&lt;p&gt;エクスポートダイアログで各種エラーチェックをしています。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;赤いメッセージは解決する必要があります。&lt;/li&gt;
+&lt;li&gt;黄色いメッセージは無視してエクスポートできます。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://vrm.dev/docs/univrm/export/univrm_export/&#34;&gt;エクスポートダイアログ&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://vrm.dev/images/vrm/export_dialog_title_version_author.jpg&#34;  width=&#34;900&#34; /&gt;
+
+&lt;br&gt;
+ライセンス情報を入力してください。赤いメッセージな無くなれば Export を押せます。
+次の作業のため、&lt;code&gt;Assets/models/vrm&lt;/code&gt; フォルダを作成してそこにエクスポートしました。&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;エクスポート先&lt;/h4&gt;
+エクスポート先には、Unity の Assets 内、外どちらでも選択できます。
+Assets 内を選択すると、Export 直後に Import が発動します(Importの方が重い)。
+Assets 内を選択する場合は、新規に専用のフォルダを作成すると分かりやすくなります。
+&lt;/div&gt;
+
+&lt;h2 id=&#34;エクスポートオプション&#34;&gt;エクスポートオプション&lt;/h2&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/export_options.jpg&#34;  width=&#34;900&#34; /&gt;
+
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;T-Poseにする&lt;/h4&gt;
+自動で T-Pose 化します。このオプションを使わずにシーン上で見た目で T-Pose にしても問題ありません。
+&lt;/div&gt;
+
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Pose Freeze&lt;/h4&gt;
+エクスポート時に正規化します。
+最新版は、 &lt;code&gt;ExportRoot&lt;/code&gt; をセットしたときにヒエラルキーに回転・拡縮があるかどうかを調べて、このチェックボックスを自動で設定するようになっています。
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 2. VRMをセットアップする</title>
+      <link>https://vrm.dev/how_to_make_vrm/setup_vrm/</link>
+      <pubDate>Wed, 26 Aug 2020 15:52:30 +0900</pubDate>
+      
+      <guid>https://vrm.dev/how_to_make_vrm/setup_vrm/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;vrmモデル&#34;&gt;VRMモデル&lt;/h2&gt;
+&lt;p&gt;前節で VRM 出力したモデルの prefab。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;VRMファイルを、UnityのAssetsにドラッグ＆ドロップする&lt;/strong&gt; だけで、VRMファイルがインポートされ &lt;strong&gt;モデルデータのPrefabが生成されます&lt;/strong&gt; 。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vrm.dev/images/vrm/vrm_prefab.png&#34;   /&gt;
+
+&lt;img src=&#34;https://vrm.dev/images/vrm/vrm_components.jpg&#34;   /&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;正規化されている&lt;/li&gt;
+&lt;li&gt;VRMMeta, Animator, VRMBlendShapeProxy, VRMFirstPerson, VRMLookAtHead, VRMLookAtBoneApplyer 等がアタッチされている&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;vrm-の-prefabをシーンに展開する&#34;&gt;VRM の Prefabをシーンに展開する&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;File&lt;/code&gt; - &lt;code&gt;New Scene&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;prefab をシーンに展開します。&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/alicia_scene2.png&#34;   /&gt;
+
+&lt;h2 id=&#34;vrm独自の設定を行う&#34;&gt;VRM独自の設定を行う&lt;/h2&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/vrm_settings.png&#34;   /&gt;
+
+&lt;p&gt;読み込まれたモデルデータをHierarchyで選択すると、&lt;strong&gt;インスペクタにさまざまな設定項目&lt;/strong&gt; があらわれます。また、&lt;strong&gt;secondaryには揺れ物の設定&lt;/strong&gt;が入っています。これらを設定していきます。
+&lt;strong&gt;少なくとも、&lt;a href=&#34;https://vrm.dev/docs/univrm/meta/univrm_meta/&#34;&gt;タイトル・作者・ライセンス情報&lt;/a&gt;&lt;/strong&gt; は埋めるようにしてください。 &lt;strong&gt;特にライセンス情報は重要です！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;ほかに、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://vrm.dev/docs/univrm/blendshape/univrm_blendshape/&#34;&gt;表情や口パクの設定（BlendShape）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vrm.dev/docs/univrm/firstperson/univrm_firstperson/&#34;&gt;一人称視点の設定（一人称視点でモデルを操作する場合、邪魔になる頭などのパーツを指定する、標準の視点位置を設定する）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vrm.dev/docs/univrm/lookat/univrm_lookat/&#34;&gt;視線・眼球の可動範囲と可動曲線の設定。ボーンによる眼球回転だけでなく、BlendShapeによる眼球アニメーションにも対応。&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://vrm.dev/docs/univrm/springbone/univrm_secondary/&#34;&gt;揺れ物（SpringBone/SpringBoneCollider）の設定&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;がありますので必要に応じて設定していきます。&lt;/p&gt;
+&lt;h3 id=&#34;vrmファイルを出力する&#34;&gt;VRMファイルを出力する&lt;/h3&gt;
+&lt;p&gt;調整が終わったら、UnityのHierarchyでモデルデータを選択し、再度メニューから&lt;code&gt;VRM0&lt;/code&gt; - &lt;code&gt;Export UniVRM-0.XX&lt;/code&gt;を実行します。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vrm.dev/images/vrm/vrm_menu.jpg&#34; alt=&#34;vrm_menu&#34; width=&#34;250&#34; /&gt;
+
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;前のバージョンは &lt;code&gt;VRM&lt;/code&gt; - &lt;code&gt;UniVRM-0.XX&lt;/code&gt; - &lt;code&gt;Export humanoid&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vrm.dev/images/vrm/UniVRMExportHumanoid.jpg&#34; alt=&#34;UniVRMExportHumanoid&#34; width=&#34;400&#34; /&gt;
+
+&lt;br&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Pose Freeze&lt;/h4&gt;
+&lt;p&gt;エクスポート時に正規化します。
+最新版は、 &lt;code&gt;ExportRoot&lt;/code&gt; をセットしたときにヒエラルキーに回転・拡縮があるかどうかを調べて、このチェックボックスを自動で設定するようになっています。
+最初の正規化以降でも、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;アクセサリを追加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;などの場合に必要です。 &lt;code&gt;ExportRoot&lt;/code&gt; を再セットすれば自動判定します。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://vrm.dev/docs/univrm/blendshape/univrm_bake_blendshape/&#34;&gt;BlendShape の Bake&lt;/a&gt; もあります。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&#34;完成&#34;&gt;完成！&lt;/h3&gt;
+&lt;p&gt;これでセットアップ済のVRMファイルが出来ました。&lt;a href=&#34;https://vrm.dev/vrm_applications/&#34;&gt;対応アプリケーション&lt;/a&gt;に読み込ませてみましょう！&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: VRMの動作を確認する</title>
+      <link>https://vrm.dev/how_to_make_vrm/vrm_behavior_confirmation/</link>
+      <pubDate>Wed, 26 Aug 2020 15:52:48 +0900</pubDate>
+      
+      <guid>https://vrm.dev/how_to_make_vrm/vrm_behavior_confirmation/</guid>
+      <description>
+        
+        
+        &lt;p&gt;このセクションでは、作成したVRMモデルをUnity上で再生し挙動を確認することを想定しています。&lt;/p&gt;
+&lt;h3 id=&#34;目の動きを確認する&#34;&gt;目の動きを確認する&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;AnimationClip/AnimationController&lt;/code&gt;をセットしたり、&lt;code&gt;VRMLookAtHead&lt;/code&gt;の&lt;code&gt;Target&lt;/code&gt;に&lt;a href=&#34;https://vrm.dev/docs/univrm/lookat/univrm_lookat/#target&#34;&gt;GameObject&lt;/a&gt;をセットしたり（視線がどこを向くかの設定）、&lt;code&gt;Head&lt;/code&gt;欄にヘッドコンポーネントを探したり、実際にUnity上で動作を確認します。モデルはプレイモードでターゲット位置を追跡します（たとえば、&lt;code&gt;GameObject -&amp;gt; 3D Object -&amp;gt; Cube&lt;/code&gt;からターゲットとしてキュ​​ーブをヒエラルキーに作成できます）。シーンに配置されたオブジェクトをドラッグして、モデルの目がリアルタイムでオブジェクトを追跡しているかどうかをテストできます。モデルのクローズアップフェイスは、インスペクターウィンドウで見れます。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vrm.dev/images/vrm/LookAtTarget.png&#34; alt=&#34;LookAtTarget&#34; width=&#34;900&#34; /&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/TargetTracking.png&#34; alt=&#34;TargetTracking&#34; width=&#34;500&#34; /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;表情を確認する&#34;&gt;表情を確認する&lt;/h3&gt;
+&lt;p&gt;モデルの表情を確認するには、非常に簡単なテストスクリプト「AIUEO」と「Blinker」を用意しています。&lt;a href=&#34;https://vrm.dev/docs/univrm/blendshape/univrm_blendshape/#vrmblendshapeproxy&#34;&gt;BlendShape&lt;/a&gt;をセットアップした後、&lt;code&gt;Add Component&lt;/code&gt;から「AIUEO」を選んでセットすれば「あ」「い」「う」「え」「お」の口の形に順番に切り替わるアニメーションが、「Blinker」を選んでセットすれば定期的にまばたきのアニメーションが行われます。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img src=&#34;https://vrm.dev/images/vrm/BlendShapeProxy.png&#34; alt=&#34;BlendShapeProxy&#34; width=&#34;650&#34; /&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;BlendShapeAvatar&lt;/code&gt;フィールドにダブルクリックして、3Dモデルの表情を設定します&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://vrm.dev/images/vrm/AddExpressionScripts.png&#34; alt=&#34;AddExpressionScripts&#34; width=&#34;650&#34; /&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/InspectorFaceView.png&#34; alt=&#34;InspectorFaceView&#34; width=&#34;400&#34; /&gt;
+&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

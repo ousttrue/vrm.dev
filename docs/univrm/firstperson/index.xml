@@ -1,0 +1,147 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VRM – FirstPerson</title>
+    <link>https://vrm.dev/docs/univrm/firstperson/</link>
+    <description>Recent content in FirstPerson on VRM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 06 Aug 2020 18:09:15 +0900</lastBuildDate>
+    
+	  <atom:link href="https://vrm.dev/docs/univrm/firstperson/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: VRMFirstPerson</title>
+      <link>https://vrm.dev/docs/univrm/firstperson/univrm_firstperson/</link>
+      <pubDate>Mon, 16 Apr 2018 16:30:00 +0900</pubDate>
+      
+      <guid>https://vrm.dev/docs/univrm/firstperson/univrm_firstperson/</guid>
+      <description>
+        
+        
+        &lt;p&gt;２系統の設定があります。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;VRMモデル内で、VRヘッドセット位置を指定する&lt;/li&gt;
+&lt;li&gt;VRで、メッシュごとにカメラの可視設定を分ける&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;※ アプリケーション側でこれらのパラメーターを使っている場合のみ有効です&lt;/p&gt;
+&lt;h2 id=&#34;ヘッドセットの位置指定&#34;&gt;ヘッドセットの位置指定&lt;/h2&gt;
+&lt;p&gt;ヘッドの動きの頭部への反映を微調整できます。&lt;/p&gt;
+&lt;h3 id=&#34;firstpersonbone&#34;&gt;FirstPersonBone&lt;/h3&gt;
+&lt;p&gt;通常頭ボーンを指定します。
+一人称時にヘッドセットに追随させるボーンです。&lt;/p&gt;
+&lt;h3 id=&#34;firstpersonoffset&#34;&gt;FirstPersonOffset&lt;/h3&gt;
+&lt;p&gt;追随する位置をFirstPersonBoneの位置からオフセットします。
+デフォルト値[0, 0.06, 0]は、Headから両目の間へのオフセットを想定しています。&lt;/p&gt;
+&lt;h2 id=&#34;vrの可視設定&#34;&gt;VRの可視設定&lt;/h2&gt;
+&lt;p&gt;VRアプリでの可視設定です。
+VRアプリでは２種類のカメラが想定されます。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一人称(HMDにレンダリングされる)&lt;/li&gt;
+&lt;li&gt;三人称(HMD以外。配信用、鏡、マルチユーザーの他のユーザーのHMD)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;です。
+このとき、一人称で普通に自身のモデルがすべて見えると不都合があります。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;近平面で自分の輪切りが見える&lt;/li&gt;
+&lt;li&gt;髪が邪魔で何も見えない&lt;/li&gt;
+&lt;li&gt;自分モデルの頭部の中身が見えてしまう(歯とか)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;など。
+これらの自体に対処するために、メッシュ毎に２種類のカメラに対する可視性を設定できます。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;設定&lt;/th&gt;
+&lt;th&gt;一人称カメラ&lt;/th&gt;
+&lt;th&gt;三人称カメラ&lt;/th&gt;
+&lt;th&gt;備考&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Both&lt;/td&gt;
+&lt;td&gt;〇&lt;/td&gt;
+&lt;td&gt;〇&lt;/td&gt;
+&lt;td&gt;体、手、足など頭部から遠い部位を指する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FirstPersonOnly&lt;/td&gt;
+&lt;td&gt;〇&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;使わない？&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ThirdPersonOnly&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;〇&lt;/td&gt;
+&lt;td&gt;外部カメラしか見えない。頭部、髪、帽子などを指定する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Auto&lt;/td&gt;
+&lt;td&gt;後述&lt;/td&gt;
+&lt;td&gt;後述&lt;/td&gt;
+&lt;td&gt;デフォルト&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;設定のリセット&#34;&gt;設定のリセット&lt;/h3&gt;
+&lt;p&gt;FirstPerson は、最初に自動で Auto の設定になるようになっています。
+Mesh が増減するなどでモデルの構成が変わった場合に、参照が &lt;code&gt;Missing&lt;/code&gt; になるなどエクスポートできない状態になる場合があります。
+VRMFirstPerson をリセットすることで再設定することができます。
+リセットする方法は、&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;VRM First Person(Script)&lt;/code&gt; インスペクタの右上角の &lt;code&gt;歯車アイコン ⚙&lt;/code&gt; で表示されるメニューから &lt;code&gt;Reset&lt;/code&gt; を選択してください。&lt;/p&gt;
+&lt;img src=&#34;https://vrm.dev/images/vrm/firstperson_reset.gif&#34; alt=&#34;firstperson reset&#34; width=&#34;600&#34; /&gt;
+
+&lt;h3 id=&#34;auto-による-both-と-thirdpersononly-への自動分割&#34;&gt;Auto による Both と ThirdPersonOnly への自動分割&lt;/h3&gt;
+&lt;p&gt;設定をAutoにしておくと、ロード時にメッシュを自動で &lt;code&gt;Both&lt;/code&gt; と &lt;code&gt;ThirdPersonOnly&lt;/code&gt; に分離することを指示できます。
+UniVRMでは &lt;a href=&#34;https://vrm.dev/docs/univrm/programming/univrm_use_firstperson/#実行時にsetupを呼び出してカメラにlayermaskを設定する&#34;&gt;VRMFirstPerson.Setup()&lt;/a&gt; を呼び出します。
+Autoによる自動分割は、重めの処理になります。&lt;/p&gt;
+&lt;p&gt;分割基準は、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;含まれる頂点が &lt;code&gt;head&lt;/code&gt; か &lt;code&gt;head&lt;/code&gt; の子孫の weight を持っているか否か&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;です。
+すべて同じ側の場合は分割せずに、&lt;code&gt;Both&lt;/code&gt; か &lt;code&gt;ThirdPersonOnly&lt;/code&gt; として扱います。&lt;/p&gt;
+&lt;h3 id=&#34;推奨される構成&#34;&gt;推奨される構成&lt;/h3&gt;
+&lt;p&gt;あらかじめ、頭と体にモデルを分割しておき&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;頭に &lt;code&gt;ThirdPersonOnly&lt;/code&gt; を指定&lt;/li&gt;
+&lt;li&gt;体に &lt;code&gt;Both&lt;/code&gt; を指定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img src=&#34;https://vrm.dev/images/vrm/firstperson.png&#34;   /&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;立体ちゃんは頭とそれ以外が分かれているので体をBoth、頭をThirdPersonOnlyに設定します。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img src=&#34;https://vrm.dev/images/vrm/firstperson_runtime.png&#34; alt=&#34;firstperson&#34;  /&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;動作例。ThirdPersonOnlyに設定したメッシュがFirstPersonで非表示になりました。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
