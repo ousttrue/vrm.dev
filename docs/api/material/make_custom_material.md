@@ -16,7 +16,7 @@ https://discussions.unity.com/t/urp-lit-sample-is-missing-all-shaders-in-webgl-b
 
 RuntimeLoad 向けではありません。
 
-## ShaderGraph で TinyPbr を作成
+## ShaderGraph で CustomMaterial を作成
 
 `v0.128.2` [VRM10Viewer Sample](/api/sample/vrm10/VRM10Viewer/) にて PBR と MToon1.0 のカスタムシェーダーを提供予定です。
 
@@ -42,8 +42,8 @@ TinyPbr と名付けた例。
 | type                         | name                          | note                                                               |
 | ---------------------------- | ----------------------------- | ------------------------------------------------------------------ |
 | shader                       | TinyPbr                       | TinyPbrOpaque, TinyPbrAlphaBlend, TinyPbrCutoff が必要かもしれない |
-| 補助クラス                   | TinyPbrContext.cs             |                                                                    |
-| IMaterialDescriptorGenerator | TinyPbrDescriptorGenerator.cs |                                                                    |
+| 補助クラス                   | TinyPbrMaterialContext.cs             |                                                                    |
+| IMaterialDescriptorGenerator | TinyPbrMaterialDescriptorGenerator.cs |                                                                    |
 
 ### ShaderGraph で Shader を作成
 
@@ -81,7 +81,7 @@ using UnityEngine;
 
 namespace UniVRM10.VRM10Viewer
 {
-    public class TinyPbrContext
+    public class TinyPbrMaterialContext
     {
         private static readonly int BaseMap = Shader.PropertyToID("_BaseMap");
         public readonly Material Material;
@@ -104,7 +104,7 @@ namespace UniVRM10.VRM10Viewer
             set => Material.SetTextureScale(BaseMap, value);
         }
 
-        public TinyPbrContext(Material material)
+        public TinyPbrMaterialContext(Material material)
         {
             Material = material;
         }
@@ -116,7 +116,7 @@ namespace UniVRM10.VRM10Viewer
 </details>
 
 <details>
-  <summary>TinyPbrDescriptorGenerator.cs</summary>
+  <summary>TinyPbrMaterialDescriptorGenerator.cs</summary>
   <p>
 
 ```cs
@@ -131,14 +131,14 @@ namespace UniVRM10.VRM10Viewer
     /// <summary>
     /// GLTF の MaterialImporter
     /// </summary>
-    public sealed class TinyPbrDescriptorGenerator : IMaterialDescriptorGenerator
+    public sealed class TinyPbrMaterialDescriptorGenerator : IMaterialDescriptorGenerator
     {
         public UrpGltfPbrMaterialImporter PbrMaterialImporter { get; } = new();
         public UrpGltfDefaultMaterialImporter DefaultMaterialImporter { get; } = new();
 
         public Material Material { get; set; }
 
-        public TinyPbrDescriptorGenerator(Material material)
+        public TinyPbrMaterialDescriptorGenerator(Material material)
         {
             Material = material;
         }
@@ -190,7 +190,7 @@ namespace UniVRM10.VRM10Viewer
 
         public static async Task GenerateMaterialAsync(GltfData data, glTFMaterial src, Material dst, GetTextureAsyncFunc getTextureAsync, IAwaitCaller awaitCaller)
         {
-            var context = new TinyPbrContext(dst);
+            var context = new TinyPbrMaterialContext(dst);
 
             if (src is { pbrMetallicRoughness: { baseColorTexture: { index: >= 0 } } })
             {
@@ -211,7 +211,7 @@ namespace UniVRM10.VRM10Viewer
 ```cs
         public static async Task GenerateMaterialAsync(GltfData data, glTFMaterial src, Material dst, GetTextureAsyncFunc getTextureAsync, IAwaitCaller awaitCaller)
         {
-            var context = new TinyPbrContext(dst);
+            var context = new TinyPbrMaterialContext(dst);
 
             if (src is { pbrMetallicRoughness: { baseColorTexture: { index: >= 0 } } })
             {
@@ -230,11 +230,36 @@ namespace UniVRM10.VRM10Viewer
 
 ## IMaterialDescriptorGenerator 詳細
 
-TODO:
+### マテリアルを分岐させる
+
+unlit, gltf を分岐させます。
+両方を作ることができなかった場合は `glTF default pbr` を作成します。
+
+```cs
+        public MaterialDescriptor Get(GltfData data, int i)
+        {
+            // UNLIT を試す
+            if (BuiltInGltfUnlitMaterialImporter.TryCreateParam(data, i, out var param)) return param;
+            // PBR を試す
+            if (PbrMaterialImporter.TryCreateParam(data, i, out param)) return param;
+
+            // NOTE: Fallback to default material
+            if (Symbols.VRM_DEVELOP)
+            {
+                UniGLTFLogger.Warning($"material: {i} out of range. fallback");
+            }
+            return GetGltfDefault(GltfMaterialImportUtils.ImportMaterialName(i, null));
+        }
+```
 
 ## PBR 詳細
 
-TODO:
+### BaseColor
+### MetallicRoughness & Occulusion
+### Normal
+### Emission
+### Doubleface
+### Opaque / AlphaBlending / Cutoff
 
 ## MToon 詳細
 
