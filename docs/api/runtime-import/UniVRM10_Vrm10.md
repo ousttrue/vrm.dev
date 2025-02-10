@@ -24,7 +24,7 @@ Task<Vrm10Instance> Vrm10.LoadPathAsync(
 )
 ```
 
-仕様例
+使用例
 
 ```cs
 var vrm = await Vrm10.LoadPathAsync(vrm_path);

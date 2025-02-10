@@ -288,7 +288,15 @@ const sidebars: SidebarsConfig = {
         "api/material/texture_manipulation",
         "api/material/transparent_zwrite",
         "gltf/emission_glow",
-        "api/material/make_custom_material",
+        {
+          type: "category",
+          label: "CustomMaterial",
+          link: { type: "doc", id: "api/material/custom_material/index" },
+          items: [
+            "api/material/custom_material/pbr_example",
+            "api/material/custom_material/mtoon_example",
+          ]
+        },
       ],
     },
     {
